@@ -1,6 +1,6 @@
 /**
  * @author Victor Krenzel (102446176)
- * @desc WEB222 Assignment 2
+ * @desc WEB322 Assignment 2
  * @date 10/16/2022
  * @version 0.1
  */
@@ -12,11 +12,12 @@ const app = express()
 // HTTP Port (default 8080)
 const port = process.env.PORT || 8080
 
+// *** Main - Root Route ***
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './views/blog.html'))
     console.log(`'/' Successfully loaded!`)
 })
-
 
 app.get("/readmore", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/read_more.html"));
