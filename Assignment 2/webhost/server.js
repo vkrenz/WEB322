@@ -37,11 +37,20 @@ router.get("/login", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/login.html"));
 })
 
-// *** Error Handling ***
+// *** Error Handling (Middleware) ***
 
 app.use((err, req, res, next) => {
-    res.status(404).send("Error 404: Page Not Found");
+    console.error(err.stack)
+    res.status(500).send('Error: Something broke.')
 })
+
+// *** Error Logger Fsunc ***
+
+// Generic Error Logger Function 
+const logErr = (err, req, res, next) => {
+    console.log(err.stack)
+    next(err)
+}
 
 // *** Listener ***
 
