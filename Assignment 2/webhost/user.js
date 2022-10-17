@@ -1,3 +1,7 @@
+/**
+ * @desc Testing User Object Member Functions
+ */
+
 const user = {
     fullname: null,
     username: null,

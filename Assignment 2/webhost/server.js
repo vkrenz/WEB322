@@ -1,42 +1,48 @@
+/**
+ * @author Victor Krenzel (102446176)
+ * @desc WEB222 Assignment 2
+ * @date 10/16/2022
+ * @version 0.1
+ */
+
 const express = require('express')
 const path = require('path')
-const multer = require('multer')
 const app = express()
+
+// HTTP Port (default 8080)
 const port = process.env.PORT || 8080
 
-// Import Modules
-const registerRouter = require("./routes/register")
-
-// Routers
-app.use('/register', registerRouter)
-
-// setup the static folder that static resources can load from
-// we need this so that the photo can be loaded from the server
-// by the browser after sending it
-app.use(express.static("./public/"));
-
-// setup a 'route' to listen on the default url path (http://localhost)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './views/blog.html'))
     console.log(`'/' Successfully loaded!`)
 })
 
-// now add a route that we can POST the form data to
-// IE: http://localhost/register-user
-// add the middleware function (upload.single("photo")) for multer to process the file upload in the form
-// the string you pass the single() function is the value of the
-// 'name' attribute on the form for the file input element
 
-
-// setup another route to listen on /readmore
-app.get("/readmore", function(req,res){
+app.get("/readmore", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/read_more.html"));
-});
+})
 
-// Error Handler
+// *** Registration Routes ***
+
+app.get("/register", (req,res) => {
+    res.sendFile(path.join(__dirname,"./views/registration.html"))
+})
+
+app.post("/register-user", upload.single("photo"), (req, res) => {
+    res.send("register");
+})
+
+router.get("/login", (req,res) => {
+    res.sendFile(path.join(__dirname,"./views/login.html"));
+})
+
+// *** Error Handling ***
+
 app.use((err, req, res, next) => {
     res.status(404).send("Error 404: Page Not Found");
-});
+})
+
+// *** Listener ***
 
 // setup http server to listen on port
 app.listen(port, () => {
