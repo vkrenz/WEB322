@@ -1,7 +1,7 @@
 /**
  * @author Victor Krenzel (102446176)
  * @desc WEB322 Assignment 2
- * @date 10/16/2022
+ * @date 10/20/2022
  * @version 0.1
  */
 
@@ -9,6 +9,8 @@ const express = require('express')
 const path = require('path')
 const multer = require('multer')
 const app = express()
+
+app.use(express.static('public'))
 
 // HTTP Port (default 8080)
 const port = process.env.PORT || 8080
@@ -27,12 +29,18 @@ const upload = multer({ storage: storage })
 // *** Main - Root Route ***
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/blog.html'))
+    res.sendFile(path.join(__dirname, './views/index.html'))
     console.log(`'/' Successfully loaded!`)
 })
 
 app.get("/readmore", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/read_more.html"));
+})
+
+// *** Blog Route ***
+
+app.get("/blog", (req, res) => {
+    res.sendFile(path.join(__dirname,"./views/blog.html"))
 })
 
 // *** Registration Routes ***
