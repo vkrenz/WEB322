@@ -7,10 +7,22 @@
 
 const express = require('express')
 const path = require('path')
+const multer = require('multer')
 const app = express()
 
 // HTTP Port (default 8080)
 const port = process.env.PORT || 8080
+
+// *** Multer Setup ***
+
+const storage = multer.diskStorage({
+    destination: "./public/photos",
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(path.originalname))
+    }
+})
+
+const upload = multer({ storage: storage })
 
 // *** Main - Root Route ***
 
@@ -33,7 +45,7 @@ app.post("/register-user", upload.single("photo"), (req, res) => {
     res.send("register");
 })
 
-router.get("/login", (req,res) => {
+app.get("/login", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/login.html"));
 })
 
