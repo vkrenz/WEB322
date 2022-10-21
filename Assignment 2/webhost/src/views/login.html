@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Log In | Web Hosting Canada</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img class="logo" src="img/logo.png" alt="Web Hosting Canada" height="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="/read_more">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="/registration">Registration</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link bg-secondary text-light rounded px-4 py-2 active" aria-current="page" href="/login">Login</a>
+          </li>
+      </ul>
+      </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+<!-- Main Container -->
+<div class="container pt-4">
+    
+<div class="row w-50 mx-auto">
+    <div class="col">
+        <h1 class="display-3 text-center text-muted my-4">Log Into WHC</h1>
+        <!-- Register Form -->
+        <form action="/login-user" method="POST">
+            <div class="mb-3">
+                <label for="inputUserName" class="form-label">Username</label>
+                <input type="text" class="form-control" id="inputUserName" placeholder="Username (ie. jdoe)">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Log In</button>
+            </form>
+            <p class="text-muted my-4">Don't have an account? <a href="/registration">Sign Up</a></p>
+        <!-- Register Form End -->
+    </div>
+</div>
+
+
+<!-- Main Container End -->
+</div>
+
+    
+</body>
+</html>

@@ -2,7 +2,7 @@
  * @author Victor Krenzel (102446176)
  * @desc WEB322 Assignment 2
  * @date 10/20/2022
- * @version 0.1
+ * @version 1.0
  */
 
 const express = require('express')
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     console.log(`'/' Successfully loaded!`)
 })
 
-app.get("/readmore", (req,res) => {
+app.get("/read_more", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/read_more.html"));
 })
 
@@ -45,12 +45,8 @@ app.get("/blog", (req, res) => {
 
 // *** Registration Routes ***
 
-app.get("/register", (req,res) => {
+app.get("/registration", (req,res) => {
     res.sendFile(path.join(__dirname,"./views/registration.html"))
-})
-
-app.post("/register-user", upload.single("photo"), (req, res) => {
-    res.send("register");
 })
 
 app.get("/login", (req,res) => {
