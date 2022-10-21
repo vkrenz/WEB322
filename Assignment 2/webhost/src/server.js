@@ -2,7 +2,7 @@
  * @author Victor Krenzel (102446176)
  * @desc WEB322 Assignment 2
  * @date 10/20/2022
- * @version 1.1
+ * @version 1.2
  */
 
 const express = require('express')
