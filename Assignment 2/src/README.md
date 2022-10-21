@@ -1,1 +1,1 @@
-(link to cyclic app)[https://webhostcanada.cyclic.app/]
+[link to cyclic app](https://webhostcanada.cyclic.app/)
